@@ -1,9 +1,8 @@
 //
-//  ViewController.swift
+//  CalculateTipViewContrller.swift
 //  Tipsy
 //
-//  Created by Angela Yu on 09/09/2019.
-//  Copyright © 2019 The App Brewery. All rights reserved.
+//  Created by Vaibhav Ranga on 22/03/24.
 //
 
 import UIKit
@@ -23,17 +22,13 @@ class CalculateTipViewController: UIViewController {
         
         let tipButtonSelected = tipsyBrain.selectedButton(buttonValue: nil)
         
-        zeroPercentTipButton.isSelected = tipButtonSelected.zeroPercentTipButton
-        tenPercentTipButton.isSelected = tipButtonSelected.tenPercentTipButton
-        twentyPercentTipButton.isSelected = tipButtonSelected.twentyPercentTipButton
+        updateUi(for: tipButtonSelected)
     }
 
     @IBAction func tipButtonPressed(_ sender: UIButton) {
         let tipButtonSelected = tipsyBrain.selectedButton(buttonValue: sender.title(for: .normal)!)
         
-        zeroPercentTipButton.isSelected = tipButtonSelected.zeroPercentTipButton
-        tenPercentTipButton.isSelected = tipButtonSelected.tenPercentTipButton
-        twentyPercentTipButton.isSelected = tipButtonSelected.twentyPercentTipButton
+        updateUi(for: tipButtonSelected)
     }
     
     @IBAction func stepperValueChanged(_ sender: UIStepper) {
@@ -46,6 +41,12 @@ class CalculateTipViewController: UIViewController {
         tipsyBrain.calculateResult(billAmount: billAmountTextField.text!)
         
         performSegue(withIdentifier: "goToResult", sender: self)
+    }
+    
+    func updateUi(for tipButtonSelected: TipButtonSelected?) {
+        zeroPercentTipButton.isSelected = tipButtonSelected!.zeroPercentTipButton
+        tenPercentTipButton.isSelected = tipButtonSelected!.tenPercentTipButton
+        twentyPercentTipButton.isSelected = tipButtonSelected!.twentyPercentTipButton
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

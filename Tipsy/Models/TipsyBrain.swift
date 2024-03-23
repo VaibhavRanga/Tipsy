@@ -2,8 +2,7 @@
 //  TipsyBrain.swift
 //  Tipsy
 //
-//  Created by Vaibhav Ranga on 21/03/24.
-//  Copyright © 2024 The App Brewery. All rights reserved.
+//  Created by Vaibhav Ranga on 22/03/24.
 //
 
 import Foundation
