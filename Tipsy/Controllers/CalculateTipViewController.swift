@@ -1,5 +1,5 @@
 //
-//  CalculateTipViewContrller.swift
+//  CalculateTipViewController.swift
 //  Tipsy
 //
 //  Created by Vaibhav Ranga on 22/03/24.
